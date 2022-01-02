@@ -37,7 +37,7 @@ setInterval(function() {
 const tableE1 = $('<table>').addClass('table');
 const tBodyE1 = $('<tbody>');
 
-for (hour = 0 + hourStart; hour < hoursInDay + hourStart; hours++) {
+for (hour = 0 + hourStart; hour < hoursInDay + hourStart; hour++) {
     var cellHour = moment().subtract(moment().format('hh') - hour, 'h')
     var tRowE1 = $('<tr>').addClass('time-block');
     var tHeadEl = $('<th>').attr('scope', 'row').addClass('hour align-middle').text(cellHour.format('hh:00 A'));
