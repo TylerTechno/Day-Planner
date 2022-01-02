@@ -40,5 +40,22 @@ const tBodyE1 = $('<tbody>');
 for (hour = 0 + hourStart; hour < hoursInDay + hourStart; hours++) {
     var cellHour = moment().subtract(moment().format('hh') - hour, 'h')
     var tRowE1 = $('<tr>').addClass('time-block');
+    var tHeadEl = $('<th>').attr('scope', 'row').addClass('hour align-middle').text(cellHour.format('hh:00 A'));
+    var tRowEventEl = $('<td>').addClass('col-event text-break text-wrap text-left data-editable').attr('contenteditable', true);
+    var tRowLockEl = $('<td>').addClass('col-lock align-middle saveBtn').text('💾');
+
+    if (moment(cellHour).isBefore(moment(), 'h')) {
+        tRowEventEl.addClass('past');
+
+    } else if (moment(cellHour).isSame(moment(),'h')) {
+        tHeadEl.addClass('past');
+        tRowEventEl.addClass('present');
+    }
+    else if (moment(cellHour).isAfter(moment(), 'h')) {
+        tRowEventEl.addClass('future')
+    }
+    tRowE1.append(tHeadEl);
     
+
+
 }
