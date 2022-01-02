@@ -36,3 +36,9 @@ setInterval(function() {
 
 const tableE1 = $('<table>').addClass('table');
 const tBodyE1 = $('<tbody>');
+
+for (hour = 0 + hourStart; hour < hoursInDay + hourStart; hours++) {
+    var cellHour = moment().subtract(moment().format('hh') - hour, 'h')
+    var tRowE1 = $('<tr>').addClass('time-block');
+    
+}
