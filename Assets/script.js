@@ -55,7 +55,20 @@ for (hour = 0 + hourStart; hour < hoursInDay + hourStart; hours++) {
         tRowEventEl.addClass('future')
     }
     tRowE1.append(tHeadEl);
-    
+    tRowE1.append(tRowEventEl);
+    tRowE1.append(tRowLockEl);
+    tBodyE1.append(tRowE1);
 
 
 }
+
+tableE1.append(tBodyE1);
+containerEl.append(tableE1);
+
+$('table').on('click', 'saveBtn',function(event) {
+    eventInfo.timeStart = $(event.target).siblings('.hour').text();
+    eventInfo.content = $(event.target).siblings('.col-event').text();
+    eventInfo.save();
+})
+
+eventInfo.load();
